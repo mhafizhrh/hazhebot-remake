@@ -1,0 +1,1 @@
+exports.sticker = require('./sticker')
