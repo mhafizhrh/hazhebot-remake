@@ -14,9 +14,12 @@ const client = new Client({
 })
 
 client.on('qr', qr => {
-    qrcode.generate(qr, {
-        small: true
-    })
+    function createQR() {
+        qrcode.generate(qr, {
+            small: true
+        })
+    }
+    setTimeout(createQR, 3000)
 })
 
 client.on('authenticated', () => {
