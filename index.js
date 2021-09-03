@@ -8,7 +8,8 @@ const commands = require('./commands')
 
 const client = new Client({
     puppeteer: {
-        executablePath: '/opt/google/chrome/google-chrome'
+        executablePath: '/opt/google/chrome/google-chrome',
+        args: ['--no-sandbox']
     },
     ffmpegPath: ffmpeg.path
 })
