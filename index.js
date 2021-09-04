@@ -9,18 +9,18 @@ const commands = require('./commands')
 const client = new Client({
     puppeteer: {
         executablePath: '/opt/google/chrome/google-chrome',
-        args: ['--no-sandbox']
+        // args: ['--no-sandbox']
     },
     ffmpegPath: ffmpeg.path
 })
 
 client.on('qr', qr => {
-    function createQR() {
-        qrcode.generate(qr, {
-            small: true
-        })
-    }
-    setTimeout(createQR, 3000)
+    // function createQR() {
+    qrcode.generate(qr, {
+        small: true
+    })
+    // }
+    // setTimeout(createQR, 3000)
 })
 
 client.on('authenticated', () => {
@@ -31,7 +31,7 @@ client.on('ready', () => {
     console.log('Bot ready.')
 })
 
-client.on('message', msg => {
+client.on('message', async (msg) => {
     if (msg.body == '!ping') {
         msg.reply('Pong')
     }
